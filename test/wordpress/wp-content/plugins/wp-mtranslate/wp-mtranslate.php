@@ -33,8 +33,8 @@ defined('ABSPATH') or exit('Something went wrong');
  *
  * @since 1.0.0 (if available)
  */
-use WPMTR\Dt\Class\MDT_Admin;
-use WPMTR\Dt\Class\MDT_Frontend;
+use WPMTR\Dt\Class\WPMTR_Admin;
+use WPMTR\Dt\Class\WPMTR_Frontend;
 
 /*
  * Constants Calls
@@ -56,7 +56,7 @@ register_activation_hook(__FILE__, ['WPMTR\Dt\Class\MDT_Admin', 'activate']);
  *
  * @since 1.0.0 (if available)
  */
-register_deactivation_hook(__FILE__, ['WPMTR\Dt\Class\MDT_Admin', 'deactivate']);
+register_deactivation_hook(__FILE__, ['WPMTR\Dt\Class\WPMTR_Admin', 'deactivate']);
 
 // Register to start the Plugin
 
@@ -72,7 +72,7 @@ add_action('admin_init', 'wpmtr_admin_init', 99);
  */
 function wpmtr_admin_init()
 {
-    $plugin = new MDT_Admin();
+    $plugin = new WPMTR_Admin();
     $plugin->register_settings();
 }
 
