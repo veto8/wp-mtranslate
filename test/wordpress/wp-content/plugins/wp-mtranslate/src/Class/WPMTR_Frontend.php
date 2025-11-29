@@ -11,7 +11,7 @@ namespace WPMTR\Dt\Class;
  */
 class MDT_Frontend
 {
-    private $option_name = "myridiadt_settings";        
+    private $option_name = "wpmtr_settings";        
     private $domain;
     private $base_domain;
     private $options;
@@ -33,8 +33,8 @@ class MDT_Frontend
             $this->set_domain();
             $this->set_lang_codes($this->domain, $this->options);
             if ($this->source_lang_code && $this->target_lang_code) {
-                add_action('wp_enqueue_scripts', [$this, 'add_scripts']);
-                add_action('wp_enqueue_scripts', [$this, 'add_styles']);
+                //add_action('wp_enqueue_scripts', [$this, 'add_scripts']);
+                //add_action('wp_enqueue_scripts', [$this, 'add_styles']);
             }
         }
     }
@@ -115,60 +115,6 @@ class MDT_Frontend
         return $domain;
     }
 
-    /**
-     * Add the extra plugins JavaScript files, like google translate and its callback ini functions.
-     *
-     * @return void
-     *
-     * @since 1.0.0
-     */
-    public function add_scripts()
-    {
-        wp_register_script(
-            'wpmtr_wp-mtranslate',
-            plugins_url('/js/wp-mtranslate.js', WPMTR_PLUGIN_FILE),
-            [],
-            '1.0.0',
-            [
-                'strategy' => 'defer',
-            ]
-        );
 
-        wp_localize_script('wpmtr_wp-mtranslate', 'domain_translate_data', [
-            'source_lang_code' => $this->source_lang_code,
-            'target_lang_code' => $this->target_lang_code,
-            'domain' => $this->domain,
-            'domains' => $this->domains,
-            'nonce' => wp_create_nonce('mg_ajax_nonce'),
-        ]);
 
-        wp_enqueue_script('wpmtr_wp-mtranslate');
-
-        wp_register_script(
-            'wpmtr_wp-mtranslate-google',
-            'https://translate.google.com/translate_a/element.js?cb=domain_translate_init',
-            [],
-            '1.0.0',
-            [
-                'in_footer' => 'true',
-                'strategy' => 'defer',
-            ]
-        );
-
-        wp_enqueue_script('wpmtr_wp-mtranslate-google');
-    }
-
-    /**
-     * Add the extra plugins CSS files for hiding the google trans tool bar
-     * See doc https://developer.wordpress.org/reference/functions/wp_register_style/.
-     *
-     * @return void
-     *
-     * @since 1.0.0
-     */
-    public function add_styles()
-    {
-        wp_register_style('wpmtr_wp-mtranslate',plugins_url('css/wp-mtranslate.css', WPMTR_PLUGIN_FILE), [], 1);
-        wp_enqueue_style('wpmtr_wp-mtranslate');
-    }
 }

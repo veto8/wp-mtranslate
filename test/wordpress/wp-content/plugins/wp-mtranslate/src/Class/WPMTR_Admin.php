@@ -11,7 +11,7 @@ namespace WPMTR\Dt\Class;
  */
 class MDT_Admin
 {
-    private $option_name = "myridiadt_settings";    
+    private $option_name = "wpmtr_settings";    
     private $options;
     // Possible Google Translate Codes with Name
     private $lang_codes = [
@@ -158,7 +158,7 @@ class MDT_Admin
      */
     public static function deactivate()
     {
-        $p = new MDT_Admin();        
+        $p = new WPMTR_Admin();        
         delete_option($p->option_name);
     }
 
