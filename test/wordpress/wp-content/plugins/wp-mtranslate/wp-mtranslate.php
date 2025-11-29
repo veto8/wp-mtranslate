@@ -16,7 +16,7 @@
  * Text Domain: wp-mtranslate
  * Domain Path: /languages
  * Update URL: https://github.com/myridia/wp-mtranslate
- * Constant Prefix: MWPDT_
+ * Constant Prefix: WPMTR_
  * Prefix: wpmtr_
  * Option_key: myridia_domain_translate
  **/
@@ -33,30 +33,30 @@ defined('ABSPATH') or exit('Something went wrong');
  *
  * @since 1.0.0 (if available)
  */
-use MWPDT\Dt\Class\MDT_Admin;
-use MWPDT\Dt\Class\MDT_Frontend;
+use WPMTR\Dt\Class\MDT_Admin;
+use WPMTR\Dt\Class\MDT_Frontend;
 
 /*
  * Constants Calls
  * @since 1.0.0 (if available)
  */
-define('MWPDT_PLUGIN_FILE', __FILE__);
-define('MWPDT_PLUGIN_DIR', plugin_dir_path(__FILE__));
-define('MWPDT_PLUGIN_URL', plugin_dir_url(__FILE__));
+define('WPMTR_PLUGIN_FILE', __FILE__);
+define('WPMTR_PLUGIN_DIR', plugin_dir_path(__FILE__));
+define('WPMTR_PLUGIN_URL', plugin_dir_url(__FILE__));
 
 /*
  * Default Plugin activate hooks. Started as a static class functions
  *
  * @since 1.0.0 (if available)
  */
-register_activation_hook(__FILE__, ['MWPDT\Dt\Class\MDT_Admin', 'activate']);
+register_activation_hook(__FILE__, ['WPMTR\Dt\Class\MDT_Admin', 'activate']);
 
 /*
  * Default Plugin deactivate hooks. Started as a static class functions
  *
  * @since 1.0.0 (if available)
  */
-register_deactivation_hook(__FILE__, ['MWPDT\Dt\Class\MDT_Admin', 'deactivate']);
+register_deactivation_hook(__FILE__, ['WPMTR\Dt\Class\MDT_Admin', 'deactivate']);
 
 // Register to start the Plugin
 
@@ -102,11 +102,11 @@ function wpmtr_init()
  */
 spl_autoload_register(function (string $className) {
 
-    if (false === strpos($className, 'MWPDT\\Dt')) {
+    if (false === strpos($className, 'WPMTR\\Dt')) {
         return;
     }
     
-    $className = str_replace('MWPDT\\Dt\\', __DIR__.'/src/', $className);
+    $className = str_replace('WPMTR\\Dt\\', __DIR__.'/src/', $className);
     $classFile = str_replace('\\', '/', $className).'.php';
     require_once $classFile;
 });

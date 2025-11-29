@@ -1,6 +1,6 @@
 <?php
 
-namespace MWPDT\Dt\Class;
+namespace WPMTR\Dt\Class;
 
 /**
  * Main Admin Class.

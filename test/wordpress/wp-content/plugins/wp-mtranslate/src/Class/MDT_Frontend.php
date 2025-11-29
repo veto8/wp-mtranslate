@@ -1,6 +1,6 @@
 <?php
 
-namespace MWPDT\Dt\Class;
+namespace WPMTR\Dt\Class;
 
 /**
  * Class Frontend.
@@ -126,7 +126,7 @@ class MDT_Frontend
     {
         wp_register_script(
             'wpmtr_wp-mtranslate',
-            plugins_url('/js/wp-mtranslate.js', MWPDT_PLUGIN_FILE),
+            plugins_url('/js/wp-mtranslate.js', WPMTR_PLUGIN_FILE),
             [],
             '1.0.0',
             [
@@ -168,7 +168,7 @@ class MDT_Frontend
      */
     public function add_styles()
     {
-        wp_register_style('wpmtr_wp-mtranslate',plugins_url('css/wp-mtranslate.css', MWPDT_PLUGIN_FILE), [], 1);
+        wp_register_style('wpmtr_wp-mtranslate',plugins_url('css/wp-mtranslate.css', WPMTR_PLUGIN_FILE), [], 1);
         wp_enqueue_style('wpmtr_wp-mtranslate');
     }
 }
