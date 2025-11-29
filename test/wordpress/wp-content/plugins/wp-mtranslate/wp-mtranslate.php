@@ -85,9 +85,9 @@ function wpmtr_admin_init()
  */
 function wpmtr_init()
 {
-    $plugin = new MDT_Admin();
+    $plugin = new WPMTR_Admin();
     $plugin->add_menu_setting();
-    $plugin2 = new MDT_Frontend();
+    $plugin2 = new WPMTR_Frontend();
 }
 
 /*
