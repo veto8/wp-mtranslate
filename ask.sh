@@ -77,6 +77,7 @@ elif [ "$task" = "8" ]; then
 
 elif [ "$task" = "9" ]; then
     echo "...${task}"
+    sudo echo "" > test/wordpress/wp-content/debug.log 
     tail  test/wordpress/wp-content/debug.log  -f
 
 elif [ "$task" = "10" ]; then
