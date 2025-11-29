@@ -1,0 +1,54 @@
+#Header {
+  margin-top: -30px;
+  margin-bottom: 0px;
+}
+
+#row-card {
+  margin-top: -45px;
+}
+
+#Content {
+  margin-top: -40px;
+  margin-bottom: 0px;
+}
+
+#Footers {
+  margin-top: -90px;
+  margin-bottom: 0px;
+}
+
+#Content .border-start {
+  height: 175px;
+}
+
+
+.b_index .a_index {
+    font-weight:bold;
+}
+
+.b_install .a_install {
+    font-weight:bold;
+}
+
+.b_faq .a_faq {
+    font-weight:bold;
+}
+
+.b_documentation .a_documentation {
+    font-weight:bold;
+}
+
+.b_terms .a_terms {
+    font-weight:bold;
+}
+
+.b_contact .a_contact {
+    font-weight:bold;
+}
+
+
+.company {
+    font-size: 25px;
+    text-decoration:none;
+    font-family: "Nimbus Sans L", Helvetica, Arial, sans-serif;
+}

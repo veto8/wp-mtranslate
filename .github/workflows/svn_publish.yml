@@ -1,0 +1,94 @@
+name: Plugin asset/readme update
+on:
+  push:
+    branches:
+    - main
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    if: github.repository_owner == 'myridiax'
+
+    steps:
+      - name: Disable initramfs update
+        run: sudo sed -i 's/yes/no/g' /etc/initramfs-tools/update-initramfs.conf
+      - name: Disable man-db update
+        run: sudo rm -f /var/lib/man-db/auto-update
+  
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install
+        run: |
+              sudo apt-get install -y subversion
+              
+      - name: Get Tags from readme.txt and online tags 
+        run: |
+          # ls ./test/wordpress/wp-content/plugins/domain-translate/
+          tag=$(grep "Stable Tag:" ./test/wordpress/wp-content/plugins/domain-translate/readme.txt | cut -d' ' -f3) 
+          otag=$(svn list https://plugins.svn.wordpress.org/domain-/tags | grep $tag | sed 's#/*$##' )
+          echo $otag
+          echo $tag 
+      
+
+          if [ $tag = $otag ]; then
+           echo "Tag already publish, break now"
+           exit 1
+          else
+           echo "Tag not exists, continue" 
+           exit 1
+          fi
+
+  job2:
+    needs: job1
+    
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Disable initramfs update
+        run: sudo sed -i 's/yes/no/g' /etc/initramfs-tools/update-initramfs.conf
+      - name: Disable man-db update
+        run: sudo rm -f /var/lib/man-db/auto-update
+  
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install
+        run: |
+              sudo apt-get install -y subversion
+              
+
+     
+      - name: Get Tags from readme.txt and online tags 
+        run: |
+          # ls ./test/wordpress/wp-content/plugins/domain-translate/
+          tag=$(grep "Stable Tag:" ./test/wordpress/wp-content/plugins/domain-translate/readme.txt | cut -d' ' -f3) 
+          echo "TAG_NAME=$tag" >> $GITHUB_ENV
+          otag=$(svn list https://plugins.svn.wordpress.org/domain-translate/tags | grep $TAG_NAME | sed 's#/*$##' )
+          echo "OTAG_NAME=$otag" >> $GITHUB_ENV
+          
+ 
+   
+    
+      - name: Checkout
+        run: |
+              svn --force checkout https://plugins.svn.wordpress.org/domain-swapper wp
+
+      - name: Copy to trunk
+        run: |
+          rsync -r --exclude=.svn --exclude=.github ./test/wordpress/wp-content/plugins/domain-translate/ wp/trunk/
+          rsync -r --exclude=.svn --exclude=.github ./test/wordpress/wp-content/plugins/domain-translate/assets/ wp/assets/
+          
+
+      - name: SVN add and trunk
+        run: |
+          cd wp 
+          svn add * --force
+          svn status
+          # svn cp trunk tags/$tag
+          
+      - name: SVN commit  
+        run: |
+          # svn ci -m 'update' --non-interactive --no-auth-cache --username ${{ secrets.SVN_USERNAME }} --password ${{ secrets.SVN_PASSWORD }} 
+          echo $TAG_NAME
+          echo $OTAG_NAME 
+        

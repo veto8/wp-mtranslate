@@ -1,0 +1,33 @@
+{% include "_header.html" %}
+
+    <div id="content">
+        <div class="container py-4 py-xl-5">
+            <div class="row mb-5">
+                <div class="col-md-8 col-xl-6 text-center mx-auto">
+                    <h2 style="font-size: 32px;">{{doc.title}}</h2>
+                    <p class="w-lg-50" style="text-align: justify;">{{doc.title_desc}}</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div id="content_2">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12" style="margin-top: 35px;">
+                    <h1 style="padding-left: 20px;font-size: 23px;">{{doc.legal_disclaimer}}</h1>
+                    <p style="padding-left: 21px;text-align: justify;">{{doc.legal_disclaimer_content}}</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 style="padding-left: 21px;font-size: 23px;">{{doc.copyright_information}}</h1>
+                    <p style="padding-left: 19px;text-align: justify;">{{doc.copyright_information_content}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    
+    {% include "_footer.html" %}

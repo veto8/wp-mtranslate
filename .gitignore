@@ -1,3 +1,29 @@
+svn/domain-swapper
+test/appdata/firefox/downloads
+test/appdata/firefox/Downloads
+test/appdata/firefox/log
+test/appdata/firefox/machine-id
+test/appdata/firefox/minica-key.pem
+test/appdata/firefox/minica.pem
+test/appdata/firefox/profile/*
+test/appdata/firefox/xdg
+!test/appdata/firefox/*.pem
+!test/appdata/firefox/profile/cert9.db
+!test/appdata/firefox/profile/places.sqlite
+!test/appdata/firefox/profile/prefs.js
+test/appdata/firefox/profile/prefs.js
+
+
+
+
+
+
+
+pages/db/*.json
+pages/env
+
+.phpdoc/cache
+
 # Wordpress - ignore core, configuration, examples, uploads and logs.
 # https://github.com/github/gitignore/blob/main/WordPress.gitignore
 
@@ -16,9 +42,10 @@
 /readme.html
 /wp-*.php
 /xmlrpc.php
+test/wordpress/wp-content/uploads/wc-logs/
 
 # Configuration
-wp-config.php
+#wp-config.php
 
 # Example themes
 /wp-content/themes/twenty*/
