@@ -17,7 +17,7 @@
  * Domain Path: /languages
  * Update URL: https://github.com/myridia/wp-mtranslate
  * Constant Prefix: MWPDT_
- * Prefix: mwpdt_
+ * Prefix: wpmtr_
  * Option_key: myridia_domain_translate
  **/
 
@@ -60,8 +60,8 @@ register_deactivation_hook(__FILE__, ['MWPDT\Dt\Class\MDT_Admin', 'deactivate'])
 
 // Register to start the Plugin
 
-add_action('init', 'mwpdt_init', 80);
-add_action('admin_init', 'mwpdt_admin_init', 99);
+add_action('init', 'wpmtr_init', 80);
+add_action('admin_init', 'wpmtr_admin_init', 99);
 
 /**
  * Init the Admin Plugin .
@@ -70,7 +70,7 @@ add_action('admin_init', 'mwpdt_admin_init', 99);
  *
  * @since 1.0.0
  */
-function mwpdt_admin_init()
+function wpmtr_admin_init()
 {
     $plugin = new MDT_Admin();
     $plugin->register_settings();
@@ -83,7 +83,7 @@ function mwpdt_admin_init()
  *
  * @since 1.0.0
  */
-function mwpdt_init()
+function wpmtr_init()
 {
     $plugin = new MDT_Admin();
     $plugin->add_menu_setting();
