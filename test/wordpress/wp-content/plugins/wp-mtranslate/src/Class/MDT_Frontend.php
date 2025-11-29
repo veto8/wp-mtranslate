@@ -125,8 +125,8 @@ class MDT_Frontend
     public function add_scripts()
     {
         wp_register_script(
-            'mwpdt_domain-translate',
-            plugins_url('/js/domain-translate.js', MWPDT_PLUGIN_FILE),
+            'mwpdt_wp-mtranslate',
+            plugins_url('/js/wp-mtranslate.js', MWPDT_PLUGIN_FILE),
             [],
             '1.0.0',
             [
@@ -134,7 +134,7 @@ class MDT_Frontend
             ]
         );
 
-        wp_localize_script('mwpdt_domain-translate', 'domain_translate_data', [
+        wp_localize_script('mwpdt_wp-mtranslate', 'domain_translate_data', [
             'source_lang_code' => $this->source_lang_code,
             'target_lang_code' => $this->target_lang_code,
             'domain' => $this->domain,
@@ -142,10 +142,10 @@ class MDT_Frontend
             'nonce' => wp_create_nonce('mg_ajax_nonce'),
         ]);
 
-        wp_enqueue_script('mwpdt_domain-translate');
+        wp_enqueue_script('mwpdt_wp-mtranslate');
 
         wp_register_script(
-            'mwpdt_domain-translate-google',
+            'mwpdt_wp-mtranslate-google',
             'https://translate.google.com/translate_a/element.js?cb=domain_translate_init',
             [],
             '1.0.0',
@@ -155,7 +155,7 @@ class MDT_Frontend
             ]
         );
 
-        wp_enqueue_script('mwpdt_domain-translate-google');
+        wp_enqueue_script('mwpdt_wp-mtranslate-google');
     }
 
     /**
@@ -168,7 +168,7 @@ class MDT_Frontend
      */
     public function add_styles()
     {
-        wp_register_style('mwpdt_domain-translate',plugins_url('css/domain-translate.css', MWPDT_PLUGIN_FILE), [], 1);
-        wp_enqueue_style('mwpdt_domain-translate');
+        wp_register_style('mwpdt_wp-mtranslate',plugins_url('css/wp-mtranslate.css', MWPDT_PLUGIN_FILE), [], 1);
+        wp_enqueue_style('mwpdt_wp-mtranslate');
     }
 }

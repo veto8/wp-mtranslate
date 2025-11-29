@@ -15,111 +15,111 @@ class MDT_Admin
     private $options;
     // Possible Google Translate Codes with Name
     private $lang_codes = [
-        ['af', __('Afrikaans','domain-translate')],
-        ['sq', __('Albanian','domain-translate')],
-        ['am', __('Amharic','domain-translate')],
-        ['ar', __('Arabic','domain-translate')],
-        ['hy', __('Armenian','domain-translate')],
-        ['az', __('Azerbaijani','domain-translate')],
-        ['eu', __('Basque','domain-translate')],
-        ['be', __('Belarusian','domain-translate')],
-        ['bn', __('Bengali','domain-translate')],
-        ['bs', __('Bosnian','domain-translate')],
-        ['bg', __('Bulgarian','domain-translate')],
-        ['ca', __('Catalan','domain-translate')],
-        ['ceb', __('Cebuano','domain-translate')],
-        ['ny', __('Chichewa','domain-translate')],
-        ['zh-CN', __('Chinese (Simplified)','domain-translate')],
-        ['zh-TW', __('Chinese (Traditional)','domain-translate')],
-        ['co', __('Corsican','domain-translate')],
-        ['hr', __('Croatian','domain-translate')],
-        ['cs', __('Czech','domain-translate')],
-        ['da', __('Danish','domain-translate')],
-        ['nl', __('Dutch','domain-translate')],
-        ['en', __('English','domain-translate')],
-        ['eo', __('Esperanto','domain-translate')],
-        ['et', __('Estonian','domain-translate')],
-        ['tl', __('Filipino','domain-translate')],
-        ['fi', __('Finnish','domain-translate')],
-        ['fr', __('French','domain-translate')],
-        ['fy', __('Frisian','domain-translate')],
-        ['gl', __('Galician','domain-translate')],
-        ['ka', __('Georgian','domain-translate')],
-        ['de', __('German','domain-translate')],
-        ['el', __('Greek','domain-translate')],
-        ['gu', __('Gujarati','domain-translate')],
-        ['ht', __('Haitian Creole','domain-translate')],
-        ['ha', __('Hausa','domain-translate')],
-        ['haw', __('Hawaiian','domain-translate')],
-        ['iw', __('Hebrew','domain-translate')],
-        ['hi', __('Hindi','domain-translate')],
-        ['hmn', __('Hmong','domain-translate')],
-        ['hu', __('Hungarian','domain-translate')],
-        ['is', __('Icelandic','domain-translate')],
-        ['ig', __('Igbo','domain-translate')],
-        ['id', __('Indonesian','domain-translate')],
-        ['ga', __('Irish','domain-translate')],
-        ['it', __('Italian','domain-translate')],
-        ['ja', __('Japanese','domain-translate')],
-        ['jw', __('Javanese','domain-translate')],
-        ['kn', __('Kannada','domain-translate')],
-        ['kk', __('Kazakh','domain-translate')],
-        ['km', __('Khmer','domain-translate')],
-        ['ko', __('Korean','domain-translate')],
-        ['ku', __('Kurdish (Kurmanji)','domain-translate')],
-        ['ky', __('Kyrgyz','domain-translate')],
-        ['lo', __('Lao','domain-translate')],
-        ['la', __('Latin','domain-translate')],
-        ['lv', __('Latvian','domain-translate')],
-        ['lt', __('Lithuanian','domain-translate')],
-        ['lb', __('Luxembourgish','domain-translate')],
-        ['mk', __('Macedonian','domain-translate')],
-        ['mg', __('Malagasy','domain-translate')],
-        ['ms', __('Malay','domain-translate')],
-        ['ml', __('Malayalam','domain-translate')],
-        ['mt', __('Maltese','domain-translate')],
-        ['mi', __('Maori','domain-translate')],
-        ['mr', __('Marathi','domain-translate')],
-        ['mn', __('Mongolian','domain-translate')],
-        ['my', __('Burmese','domain-translate')],
-        ['ne', __('Nepali','domain-translate')],
-        ['no', __('Norwegian','domain-translate')],
-        ['or', __('Odia','domain-translate')],
-        ['ps', __('Pashto','domain-translate')],
-        ['fa', __('Persian','domain-translate')],
-        ['pl', __('Polish','domain-translate')],
-        ['pt', __('Portuguese','domain-translate')],
-        ['pa', __('Punjabi','domain-translate')],
-        ['ro', __('Romanian','domain-translate')],
-        ['ru', __('Russian','domain-translate')],
-        ['sm', __('Samoan','domain-translate')],
-        ['gd', __('Scots Gaelic','domain-translate')],
-        ['sr', __('Serbian','domain-translate')],
-        ['st', __('Sesotho','domain-translate')],
-        ['sn', __('Shona','domain-translate')],
-        ['sd', __('Sindhi','domain-translate')],
-        ['si', __('Sinhala','domain-translate')],
-        ['sk', __('Slovak','domain-translate')],
-        ['sl', __('Slovenian','domain-translate')],
-        ['so', __('Somali','domain-translate')],
-        ['es', __('Spanish','domain-translate')],
-        ['su', __('Sundanese','domain-translate')],
-        ['sw', __('Swahili','domain-translate')],
-        ['sv', __('Swedish','domain-translate')],
-        ['tg', __('Tajik','domain-translate')],
-        ['ta', __('Tamil','domain-translate')],
-        ['te', __('Telugu','domain-translate')],
-        ['th', __('Thai','domain-translate')],
-        ['tr', __('Turkish','domain-translate')],
-        ['uk', __('Ukrainian','domain-translate')],
-        ['ur', __('Urdu','domain-translate')],
-        ['uz', __('Uzbek','domain-translate')],
-        ['vi', __('Vietnamese','domain-translate')],
-        ['cy', __('Welsh','domain-translate')],
-        ['xh', __('Xhosa','domain-translate')],
-        ['yi', __('Yiddish','domain-translate')],
-        ['yo', __('Yoruba','domain-translate')],
-        ['zu', __('Zulu','domain-translate')],
+        ['af', __('Afrikaans','wp-mtranslate')],
+        ['sq', __('Albanian','wp-mtranslate')],
+        ['am', __('Amharic','wp-mtranslate')],
+        ['ar', __('Arabic','wp-mtranslate')],
+        ['hy', __('Armenian','wp-mtranslate')],
+        ['az', __('Azerbaijani','wp-mtranslate')],
+        ['eu', __('Basque','wp-mtranslate')],
+        ['be', __('Belarusian','wp-mtranslate')],
+        ['bn', __('Bengali','wp-mtranslate')],
+        ['bs', __('Bosnian','wp-mtranslate')],
+        ['bg', __('Bulgarian','wp-mtranslate')],
+        ['ca', __('Catalan','wp-mtranslate')],
+        ['ceb', __('Cebuano','wp-mtranslate')],
+        ['ny', __('Chichewa','wp-mtranslate')],
+        ['zh-CN', __('Chinese (Simplified)','wp-mtranslate')],
+        ['zh-TW', __('Chinese (Traditional)','wp-mtranslate')],
+        ['co', __('Corsican','wp-mtranslate')],
+        ['hr', __('Croatian','wp-mtranslate')],
+        ['cs', __('Czech','wp-mtranslate')],
+        ['da', __('Danish','wp-mtranslate')],
+        ['nl', __('Dutch','wp-mtranslate')],
+        ['en', __('English','wp-mtranslate')],
+        ['eo', __('Esperanto','wp-mtranslate')],
+        ['et', __('Estonian','wp-mtranslate')],
+        ['tl', __('Filipino','wp-mtranslate')],
+        ['fi', __('Finnish','wp-mtranslate')],
+        ['fr', __('French','wp-mtranslate')],
+        ['fy', __('Frisian','wp-mtranslate')],
+        ['gl', __('Galician','wp-mtranslate')],
+        ['ka', __('Georgian','wp-mtranslate')],
+        ['de', __('German','wp-mtranslate')],
+        ['el', __('Greek','wp-mtranslate')],
+        ['gu', __('Gujarati','wp-mtranslate')],
+        ['ht', __('Haitian Creole','wp-mtranslate')],
+        ['ha', __('Hausa','wp-mtranslate')],
+        ['haw', __('Hawaiian','wp-mtranslate')],
+        ['iw', __('Hebrew','wp-mtranslate')],
+        ['hi', __('Hindi','wp-mtranslate')],
+        ['hmn', __('Hmong','wp-mtranslate')],
+        ['hu', __('Hungarian','wp-mtranslate')],
+        ['is', __('Icelandic','wp-mtranslate')],
+        ['ig', __('Igbo','wp-mtranslate')],
+        ['id', __('Indonesian','wp-mtranslate')],
+        ['ga', __('Irish','wp-mtranslate')],
+        ['it', __('Italian','wp-mtranslate')],
+        ['ja', __('Japanese','wp-mtranslate')],
+        ['jw', __('Javanese','wp-mtranslate')],
+        ['kn', __('Kannada','wp-mtranslate')],
+        ['kk', __('Kazakh','wp-mtranslate')],
+        ['km', __('Khmer','wp-mtranslate')],
+        ['ko', __('Korean','wp-mtranslate')],
+        ['ku', __('Kurdish (Kurmanji)','wp-mtranslate')],
+        ['ky', __('Kyrgyz','wp-mtranslate')],
+        ['lo', __('Lao','wp-mtranslate')],
+        ['la', __('Latin','wp-mtranslate')],
+        ['lv', __('Latvian','wp-mtranslate')],
+        ['lt', __('Lithuanian','wp-mtranslate')],
+        ['lb', __('Luxembourgish','wp-mtranslate')],
+        ['mk', __('Macedonian','wp-mtranslate')],
+        ['mg', __('Malagasy','wp-mtranslate')],
+        ['ms', __('Malay','wp-mtranslate')],
+        ['ml', __('Malayalam','wp-mtranslate')],
+        ['mt', __('Maltese','wp-mtranslate')],
+        ['mi', __('Maori','wp-mtranslate')],
+        ['mr', __('Marathi','wp-mtranslate')],
+        ['mn', __('Mongolian','wp-mtranslate')],
+        ['my', __('Burmese','wp-mtranslate')],
+        ['ne', __('Nepali','wp-mtranslate')],
+        ['no', __('Norwegian','wp-mtranslate')],
+        ['or', __('Odia','wp-mtranslate')],
+        ['ps', __('Pashto','wp-mtranslate')],
+        ['fa', __('Persian','wp-mtranslate')],
+        ['pl', __('Polish','wp-mtranslate')],
+        ['pt', __('Portuguese','wp-mtranslate')],
+        ['pa', __('Punjabi','wp-mtranslate')],
+        ['ro', __('Romanian','wp-mtranslate')],
+        ['ru', __('Russian','wp-mtranslate')],
+        ['sm', __('Samoan','wp-mtranslate')],
+        ['gd', __('Scots Gaelic','wp-mtranslate')],
+        ['sr', __('Serbian','wp-mtranslate')],
+        ['st', __('Sesotho','wp-mtranslate')],
+        ['sn', __('Shona','wp-mtranslate')],
+        ['sd', __('Sindhi','wp-mtranslate')],
+        ['si', __('Sinhala','wp-mtranslate')],
+        ['sk', __('Slovak','wp-mtranslate')],
+        ['sl', __('Slovenian','wp-mtranslate')],
+        ['so', __('Somali','wp-mtranslate')],
+        ['es', __('Spanish','wp-mtranslate')],
+        ['su', __('Sundanese','wp-mtranslate')],
+        ['sw', __('Swahili','wp-mtranslate')],
+        ['sv', __('Swedish','wp-mtranslate')],
+        ['tg', __('Tajik','wp-mtranslate')],
+        ['ta', __('Tamil','wp-mtranslate')],
+        ['te', __('Telugu','wp-mtranslate')],
+        ['th', __('Thai','wp-mtranslate')],
+        ['tr', __('Turkish','wp-mtranslate')],
+        ['uk', __('Ukrainian','wp-mtranslate')],
+        ['ur', __('Urdu','wp-mtranslate')],
+        ['uz', __('Uzbek','wp-mtranslate')],
+        ['vi', __('Vietnamese','wp-mtranslate')],
+        ['cy', __('Welsh','wp-mtranslate')],
+        ['xh', __('Xhosa','wp-mtranslate')],
+        ['yi', __('Yiddish','wp-mtranslate')],
+        ['yo', __('Yoruba','wp-mtranslate')],
+        ['zu', __('Zulu','wp-mtranslate')],
         ['', ''],
     ];
 
@@ -173,10 +173,10 @@ class MDT_Admin
     {
         add_submenu_page(
             'options-general.php',
-            esc_html__('Domain Translate', 'domain-translate'),
-            esc_html__('Domain Translate', 'domain-translate'),
+            esc_html__('Domain Translate', 'wp-mtranslate'),
+            esc_html__('Domain Translate', 'wp-mtranslate'),
             'manage_options',
-            'domain-translate',
+            'wp-mtranslate',
             [$this, 'wporg_options_page_html'],
             99
         );
@@ -200,7 +200,7 @@ class MDT_Admin
 
         add_settings_section(
             'section',
-            __('Settings:', 'domain-translate'),
+            __('Settings:', 'wp-mtranslate'),
             [$this, 'callback'],
             $this->option_name
         );
@@ -210,7 +210,7 @@ class MDT_Admin
         /************************* General ************************************/
         add_settings_field(
             'active',
-            __('Active:', 'domain-translate'),
+            __('Active:', 'wp-mtranslate'),
             [$this, 'make_checkbox'],
             $this->option_name,
             'section',
@@ -222,7 +222,7 @@ class MDT_Admin
 
         add_settings_field(
             'source_lang_code',
-            __('Source Lang Code:', 'domain-translate'),
+            __('Source Lang Code:', 'wp-mtranslate'),
             [$this, 'echo_select'],
             $this->option_name,
             'section',
@@ -235,7 +235,7 @@ class MDT_Admin
         /************************* Domains ************************************/
         add_settings_field(
             'domains',
-            __('Domains:', 'domain-translate'),
+            __('Domains:', 'wp-mtranslate'),
             [$this, 'make_domain_input'],
             $this->option_name,
             'section',
@@ -340,7 +340,7 @@ class MDT_Admin
     {
 
         $html = "<table class='wp-list-table widefat fixed striped'>";
-        $html .="<thead><tr><td>".__("Domain","domain-translate") . "</td><td>" . __("Language","domain-translate") . "</td><td>" . __("Delete","domain-translate") . "</td></tr></thead>";        
+        $html .="<thead><tr><td>".__("Domain","wp-mtranslate") . "</td><td>" . __("Language","wp-mtranslate") . "</td><td>" . __("Delete","wp-mtranslate") . "</td></tr></thead>";        
         $name = esc_attr($args['name']);
         $o = get_option($this->option_name);
 
@@ -359,7 +359,7 @@ class MDT_Admin
             const el = this.event.target ;
             el.parentElement.parentElement.remove();
             return false;
-            })();return false;\">". __("Delete","domain-translate") . "</button></td>";
+            })();return false;\">". __("Delete","wp-mtranslate") . "</button></td>";
             $html .="</tr>";                  
           }
         }
@@ -441,7 +441,7 @@ class MDT_Admin
         wp_nonce_field('wpds_save', 'wpds_nonce');
         settings_fields($this->option_name);
         do_settings_sections($this->option_name);
-        submit_button(__('Save Settings','domain-translate'));
+        submit_button(__('Save Settings','wp-mtranslate'));
         ?>
 		</form>
 	</div>
@@ -482,11 +482,11 @@ class MDT_Admin
      */
     public function validate($input)
     {
-        $msg = __('Settings saved successfully', 'domain-translate');
+        $msg = __('Settings saved successfully', 'wp-mtranslate');
         foreach($input["domains"] as $k=>$v) {
             if($this->is_valid_domain_name($v["domain"]) == false):
               unset($input["domains"][$k]);
-             $msg .= " - " . __('One domain was invalid and was removed', 'domain-translate');
+             $msg .= " - " . __('One domain was invalid and was removed', 'wp-mtranslate');
             endif;
         }
 
@@ -502,6 +502,6 @@ class MDT_Admin
      */
     public function callback()
     {
-        // esc_html_e('Settings added to ', 'domain-translate');
+        // esc_html_e('Settings added to ', 'wp-mtranslate');
     }
 }
