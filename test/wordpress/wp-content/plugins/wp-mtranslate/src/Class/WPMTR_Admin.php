@@ -9,7 +9,7 @@ namespace WPMTR\Dt\Class;
  *
  * @since 1.0.0
  */
-class MDT_Admin
+class WPMTR_Admin
 {
     private $option_name = "wpmtr_settings";    
     private $options;
@@ -144,7 +144,7 @@ class MDT_Admin
      */
     public static function activate()
     {
-        $p = new MDT_Admin();        
+        $p = new WPMTR_Admin();        
         $options = ["domains"=>[],"source_lang_code"=>"en","active"=>0];
         if (false == get_option($p->option_name)) {
             update_option($p->option_name, $options);

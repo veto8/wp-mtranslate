@@ -9,7 +9,7 @@ namespace WPMTR\Dt\Class;
  *
  * @since 1.0.0
  */
-class MDT_Frontend
+class WPMTR_Frontend
 {
     private $option_name = "wpmtr_settings";        
     private $domain;
