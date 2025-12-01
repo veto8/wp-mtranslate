@@ -14,7 +14,7 @@ class WPMTR_Admin
     private $option_name = "wpmtr_settings";    
     private $options;
     private $lang_codes = [
-        ['af', 'Afrikaans'],
+        ['af', 'Afrikaans' ],
     ];
 
     /**
@@ -264,7 +264,7 @@ class WPMTR_Admin
         $html .="</tr>";                                  
         $html .= "</table>";
         
-        echo $html;
+        echo wp_kses_post($html);
     }
 
     /**
