@@ -5,7 +5,7 @@
  * @since             1.0.0
  *
  * @wordpress-plugin
- * Plugin Name: Wp-mtranslate
+ * Plugin Name: WP-Mtranslate
  * Plugin URI: https://wordpress.org/plugins/wp-mtranslate
  * Description: Automatically translate your Site based on your Domain, a source and target Language.
  * Version: 1.1.0
@@ -49,7 +49,7 @@ define('WPMTR_PLUGIN_URL', plugin_dir_url(__FILE__));
  *
  * @since 1.0.0 (if available)
  */
-register_activation_hook(__FILE__, ['WPMTR\Dt\Class\MDT_Admin', 'activate']);
+register_activation_hook(__FILE__, ['WPMTR\Dt\Class\WPMTR_Admin', 'activate']);
 
 /*
  * Default Plugin deactivate hooks. Started as a static class functions
