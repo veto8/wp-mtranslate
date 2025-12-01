@@ -63,7 +63,7 @@ elif [ "$task" = "5" ]; then
     
 elif [ "$task" = "6" ]; then
     echo "...${task}"
-    phpDocumentor run -d  test/wordpress/wp-content/plugins/domain-translate/  -t pages/public/docs/
+    phpDocumentor run -d  test/wordpress/wp-content/plugins/wp-mtranslate/  -t pages/public/docs/
 
 elif [ "$task" = "7" ]; then
     echo "...${task}"
@@ -82,7 +82,7 @@ elif [ "$task" = "9" ]; then
 
 elif [ "$task" = "10" ]; then
     echo "...${task}"
-    docker exec wpcli wp i18n make-pot wp-content/plugins/domain-translate  wp-content/plugins/domain-translate/languages/domain-translate.pot  --allow-root    
+    docker exec wpcli wp i18n make-pot wp-content/plugins/wp-mtranslate  wp-content/plugins/wp-mtranslate/languages/wp-mtranslate.pot  --allow-root    
 
 
 
