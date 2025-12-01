@@ -1,2 +1,2 @@
-# wp-mtranslate
+# mtranslate
 Wordpress Myridia Translate

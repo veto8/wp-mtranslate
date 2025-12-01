@@ -67,8 +67,8 @@ class WPMTR_Admin
     {
         add_submenu_page(
             'options-general.php',
-            esc_html__('Domain Translate', 'mtranslate'),
-            esc_html__('Domain Translate', 'mtranslate'),
+            esc_html__('Mtranslate', 'mtranslate'),
+            esc_html__('Mtranslate', 'mtranslate'),
             'manage_options',
             'mtranslate',
             [$this, 'wporg_options_page_html'],
@@ -264,7 +264,9 @@ class WPMTR_Admin
         $html .="</tr>";                                  
         $html .= "</table>";
         
-        echo wp_kses_post($html);
+        echo $html;
+
+        
     }
 
     /**
