@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: WP-Mtranslate 1.1.0\n"
-"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wp-mtranslate\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/mtranslate\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -12,31 +12,31 @@ msgstr ""
 "POT-Creation-Date: 2025-12-01T19:25:34+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
-"X-Domain: wp-mtranslate\n"
+"X-Domain: mtranslate\n"
 
 #. Plugin Name of the plugin
-#: wp-mtranslate.php
+#: mtranslate.php
 msgid "WP-Mtranslate"
 msgstr ""
 
 #. Plugin URI of the plugin
-#: wp-mtranslate.php
-msgid "https://wordpress.org/plugins/wp-mtranslate"
+#: mtranslate.php
+msgid "https://wordpress.org/plugins/mtranslate"
 msgstr ""
 
 #. Description of the plugin
-#: wp-mtranslate.php
+#: mtranslate.php
 msgid "Automatically translate your Site based on your Domain, a source and target Language."
 msgstr ""
 
 #. Author of the plugin
-#: wp-mtranslate.php
+#: mtranslate.php
 msgid "veto, Myridia Company"
 msgstr ""
 
 #. Author URI of the plugin
-#: wp-mtranslate.php
-msgid "http://wp-mtranslate.myridia.com"
+#: mtranslate.php
+msgid "http://mtranslate.myridia.com"
 msgstr ""
 
 #: src/Class/WPMTR_Admin.php:70

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @see              https://wp-mtranslate.myridia.com
+ * @see              https://mtranslate.myridia.com
  * @since             1.0.0
  *
  * @wordpress-plugin
@@ -10,12 +10,12 @@
  * Description: Automatically translate your Site based on your Domain, a source and target Language.
  * Version: 1.1.0
  * Author: veto, Myridia Company
- * Author URI: http://wp-mtranslate.myridia.com
+ * Author URI: http://mtranslate.myridia.com
  * License: GPL-2.0+
  * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
  * Text Domain: mtranslate
  * Domain Path: /languages
- * Update URL: https://github.com/myridia/wp-mtranslate
+ * Update URL: https://github.com/myridia/mtranslate
  * Constant Prefix: WPMTR_
  * Prefix: wpmtr_
  * Option_key: mtranslate

@@ -67,10 +67,10 @@ class WPMTR_Admin
     {
         add_submenu_page(
             'options-general.php',
-            esc_html__('Domain Translate', 'wp-mtranslate'),
-            esc_html__('Domain Translate', 'wp-mtranslate'),
+            esc_html__('Domain Translate', 'mtranslate'),
+            esc_html__('Domain Translate', 'mtranslate'),
             'manage_options',
-            'wp-mtranslate',
+            'mtranslate',
             [$this, 'wporg_options_page_html'],
             99
         );
@@ -94,7 +94,7 @@ class WPMTR_Admin
 
         add_settings_section(
             'section',
-            __('Settings:', 'wp-mtranslate'),
+            __('Settings:', 'mtranslate'),
             [$this, 'callback'],
             $this->option_name
         );
@@ -104,7 +104,7 @@ class WPMTR_Admin
         /************************* General ************************************/
         add_settings_field(
             'active',
-            __('Active:', 'wp-mtranslate'),
+            __('Active:', 'mtranslate'),
             [$this, 'make_checkbox'],
             $this->option_name,
             'section',
@@ -116,7 +116,7 @@ class WPMTR_Admin
 
         add_settings_field(
             'source_lang_code',
-            __('Source Lang Code:', 'wp-mtranslate'),
+            __('Source Lang Code:', 'mtranslate'),
             [$this, 'echo_select'],
             $this->option_name,
             'section',
@@ -129,7 +129,7 @@ class WPMTR_Admin
         /************************* Domains ************************************/
         add_settings_field(
             'domains',
-            __('Domains:', 'wp-mtranslate'),
+            __('Domains:', 'mtranslate'),
             [$this, 'make_domain_input'],
             $this->option_name,
             'section',
@@ -234,7 +234,7 @@ class WPMTR_Admin
     {
 
         $html = "<table class='wp-list-table widefat fixed striped'>";
-        $html .="<thead><tr><td>".__("Domain","wp-mtranslate") . "</td><td>" . __("Language","wp-mtranslate") . "</td><td>" . __("Delete","wp-mtranslate") . "</td></tr></thead>";        
+        $html .="<thead><tr><td>".__("Domain","mtranslate") . "</td><td>" . __("Language","mtranslate") . "</td><td>" . __("Delete","mtranslate") . "</td></tr></thead>";        
         $name = esc_attr($args['name']);
         $o = get_option($this->option_name);
 
@@ -253,7 +253,7 @@ class WPMTR_Admin
             const el = this.event.target ;
             el.parentElement.parentElement.remove();
             return false;
-            })();return false;\">". __("Delete","wp-mtranslate") . "</button></td>";
+            })();return false;\">". __("Delete","mtranslate") . "</button></td>";
             $html .="</tr>";                  
           }
         }
@@ -335,7 +335,7 @@ class WPMTR_Admin
         wp_nonce_field('wpds_save', 'wpds_nonce');
         settings_fields($this->option_name);
         do_settings_sections($this->option_name);
-        submit_button(__('Save Settings','wp-mtranslate'));
+        submit_button(__('Save Settings','mtranslate'));
         ?>
 		</form>
 	</div>
@@ -376,11 +376,11 @@ class WPMTR_Admin
      */
     public function validate($input)
     {
-        $msg = __('Settings saved successfully', 'wp-mtranslate');
+        $msg = __('Settings saved successfully', 'mtranslate');
         foreach($input["domains"] as $k=>$v) {
             if($this->is_valid_domain_name($v["domain"]) == false):
               unset($input["domains"][$k]);
-             $msg .= " - " . __('One domain was invalid and was removed', 'wp-mtranslate');
+             $msg .= " - " . __('One domain was invalid and was removed', 'mtranslate');
             endif;
         }
 
@@ -396,6 +396,6 @@ class WPMTR_Admin
      */
     public function callback()
     {
-        // esc_html_e('Settings added to ', 'wp-mtranslate');
+        // esc_html_e('Settings added to ', 'mtranslate');
     }
 }
