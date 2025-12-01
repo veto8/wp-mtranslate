@@ -1,4 +1,4 @@
-=== WP-Mtranslate ===
+=== Mtranslate ===
 Contributors: veto
 Tags: translate domains, google translate, automatic translate
 Requires PHP: 8.2.0

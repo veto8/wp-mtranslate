@@ -5,20 +5,20 @@
  * @since             1.0.0
  *
  * @wordpress-plugin
- * Plugin Name: WP-Mtranslate
- * Plugin URI: https://wordpress.org/plugins/wp-mtranslate
+ * Plugin Name: Mtranslate
+ * Plugin URI: https://wordpress.org/plugins/mtranslate
  * Description: Automatically translate your Site based on your Domain, a source and target Language.
  * Version: 1.1.0
  * Author: veto, Myridia Company
  * Author URI: http://wp-mtranslate.myridia.com
  * License: GPL-2.0+
  * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
- * Text Domain: wp-mtranslate
+ * Text Domain: mtranslate
  * Domain Path: /languages
  * Update URL: https://github.com/myridia/wp-mtranslate
  * Constant Prefix: WPMTR_
  * Prefix: wpmtr_
- * Option_key: myridia_domain_translate
+ * Option_key: mtranslate
  **/
 
 /*
