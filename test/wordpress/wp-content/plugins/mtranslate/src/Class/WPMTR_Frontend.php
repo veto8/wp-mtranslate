@@ -33,12 +33,29 @@ class WPMTR_Frontend
             $this->set_domain();
             $this->set_lang_codes($this->domain, $this->options);
             if ($this->source_lang_code && $this->target_lang_code) {
+                //add_filter('locale', [$this, 'swap_locale'], 10a, 4);
+                add_filter('gettext', [$this, 'swap_gettext'], 10, 3);                
                 //add_action('wp_enqueue_scripts', [$this, 'add_scripts']);
                 //add_action('wp_enqueue_scripts', [$this, 'add_styles']);
             }
         }
     }
 
+
+
+    public function swap_gettext($translation, $text, $domain){
+        error_log(bin2hex(sodium_crypto_generichash( $translation,"",16)));
+        return $translation;
+    }
+
+    public function swap_locale($locale){
+        return $locale;
+    }    
+
+
+    
+
+    
     /**
      * Class function to set all set domain target language combinations.
      *
