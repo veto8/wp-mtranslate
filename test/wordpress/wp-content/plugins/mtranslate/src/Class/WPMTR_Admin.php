@@ -124,9 +124,7 @@ class WPMTR_Admin
 
 
     /**
-     * Class Constructor.
-     *
-     * Place Holder for the moment
+     * Create Database
      *
      * @since 1.0.0
      */
@@ -135,6 +133,23 @@ class WPMTR_Admin
 
     }
 
+    public function create_db()
+    {
+             global $wpdb;
+             
+             $table_name = $wpdb->prefix . 'wpmrt_translate';
+             $charset_collate = $wpdb->get_charset_collate();
+             $sql = "CREATE TABLE ". $table_name." (id mediumint(9) NOT NULL AUTO_INCREMENT,PRIMARY KEY (id))" . $charset_collate .";";
+             error_log($sql);
+             require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
+             dbDelta( $sql );
+    }
+
+
+
+
+    
+    
     /**
      * Default Activate.
      *
@@ -149,6 +164,7 @@ class WPMTR_Admin
         if (false == get_option($p->option_name)) {
             update_option($p->option_name, $options);
         }
+        $p->create_db();
     }
 
     /**
@@ -162,6 +178,21 @@ class WPMTR_Admin
         delete_option($p->option_name);
     }
 
+
+    /**
+     * Default Uninstall
+     *
+     * @since 1.0.0
+     */
+    public static function uninstall()
+    {
+             global $wpdb;
+             $table_name = $wpdb->prefix . 'wpmrt_translate';
+             $wpdb->query( "DROP TABLE IF EXISTS $table_name" );
+
+
+    }
+    
     /**
      * Add Menu Setting.
      *

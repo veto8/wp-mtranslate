@@ -58,6 +58,15 @@ register_activation_hook(__FILE__, ['WPMTR\Dt\Class\WPMTR_Admin', 'activate']);
  */
 register_deactivation_hook(__FILE__, ['WPMTR\Dt\Class\WPMTR_Admin', 'deactivate']);
 
+
+/*
+ * Default Plugin uninstall hooks. Started as a static class functions
+ *
+ * @since 1.0.0 (if available)
+ */
+register_uninstall_hook( __FILE__, ['WPMTR\Dt\Class\WPMTR_Admin', 'uninstall']);
+
+
 // Register to start the Plugin
 
 add_action('init', 'wpmtr_init', 80);
