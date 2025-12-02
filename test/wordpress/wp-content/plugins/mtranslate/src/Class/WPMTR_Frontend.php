@@ -11,7 +11,7 @@ namespace WPMTR\Dt\Class;
  */
 class WPMTR_Frontend
 {
-    private $option_name = "wpmtr_settings";        
+    private $option_name = "wpmtr_settings";
     private $domain;
     private $base_domain;
     private $options;
@@ -29,6 +29,7 @@ class WPMTR_Frontend
      */
     public function __construct()
     {
+
         if ($this->is_active()) {
             $this->set_domain();
             $this->set_lang_codes($this->domain, $this->options);
@@ -44,7 +45,29 @@ class WPMTR_Frontend
 
 
     public function swap_gettext($translation, $text, $domain){
-        error_log(bin2hex(sodium_crypto_generichash( $translation,"",16)));
+        global $wpdb;        
+
+        if ($translation == "Search") {
+            $hash = bin2hex(sodium_crypto_generichash( $translation,"",16));
+            $code = $this->target_lang_code;
+            $tb = $wpdb->prefix . 'wpmtr_translate';
+
+            $sql = "SELECT text FROM " . $tb. " WHERE hash = '". $hash . "' AND code = '". $code . "' LIMIT 1";
+            //error_log($sql);            
+            $r = $wpdb->get_results($sql);
+            if($r) {
+                $translation = $r[0]->text ;
+            }
+            else {
+        $wpdb->insert($tb, 
+   	    array( 
+		'hash' => $hash, 
+		'code' => $code,
+		'text' => $translation,
+	    ) 
+        );
+            }
+        }
         return $translation;
     }
 

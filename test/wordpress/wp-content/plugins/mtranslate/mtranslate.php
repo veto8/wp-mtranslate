@@ -5,7 +5,7 @@
  * @since             1.0.0
  *
  * @wordpress-plugin
- * Plugin Name: Mtranslate
+ * Plugin Name: MTranslate
  * Plugin URI: https://wordpress.org/plugins/mtranslate
  * Description: Automatically translate your Site based on your Domain, a source and target Language.
  * Version: 1.1.0

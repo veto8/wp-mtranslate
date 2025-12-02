@@ -11,6 +11,7 @@ namespace WPMTR\Dt\Class;
  */
 class WPMTR_Admin
 {
+    private $table = 'wpmtr_translate';    
     private $option_name = "wpmtr_settings";    
     private $options;
     private $lang_codes = [
@@ -136,10 +137,20 @@ class WPMTR_Admin
     public function create_db()
     {
              global $wpdb;
-             
-             $table_name = $wpdb->prefix . 'wpmrt_translate';
+             $table_name = $wpdb->prefix . $this->table;
              $charset_collate = $wpdb->get_charset_collate();
-             $sql = "CREATE TABLE ". $table_name." (id mediumint(9) NOT NULL AUTO_INCREMENT,PRIMARY KEY (id))" . $charset_collate .";";
+             //$sql = "CREATE TABLE ". $table_name." (id mediumint(9) NOT NULL AUTO_INCREMENT,PRIMARY KEY (id))" . $charset_collate .";";
+
+$sql = "CREATE TABLE $table_name (
+  id mediumint(9) NOT NULL AUTO_INCREMENT,
+  hash varchar(32) DEFAULT '' NOT NULL,
+  code varchar(4) DEFAULT '' NOT NULL,
+  text text NOT NULL,
+  PRIMARY KEY  (id),
+  UNIQUE INDEX (hash,code)
+) $charset_collate;";
+
+             
              error_log($sql);
              require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
              dbDelta( $sql );
@@ -175,7 +186,7 @@ class WPMTR_Admin
     public static function deactivate()
     {
         $p = new WPMTR_Admin();        
-        delete_option($p->option_name);
+        //delete_option($p->option_name);
     }
 
 
@@ -186,11 +197,9 @@ class WPMTR_Admin
      */
     public static function uninstall()
     {
-             global $wpdb;
-             $table_name = $wpdb->prefix . 'wpmrt_translate';
-             $wpdb->query( "DROP TABLE IF EXISTS $table_name" );
-
-
+       global $wpdb;
+       $table_name = $wpdb->prefix . 'wpmtr_translate';
+       $wpdb->query( "DROP TABLE IF EXISTS $table_name" );
     }
     
     /**
@@ -204,8 +213,8 @@ class WPMTR_Admin
     {
         add_submenu_page(
             'options-general.php',
-            esc_html__('Mtranslate', 'mtranslate'),
-            esc_html__('Mtranslate', 'mtranslate'),
+            esc_html__('MTranslate', 'mtranslate'),
+            esc_html__('MTranslate', 'mtranslate'),
             'manage_options',
             'mtranslate',
             [$this, 'wporg_options_page_html'],
