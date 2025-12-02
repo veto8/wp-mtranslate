@@ -47,18 +47,29 @@ class WPMTR_Frontend
     public function swap_gettext($translation, $text, $domain){
         global $wpdb;        
 
-        if ($translation == "Search") {
+        //        if ($translation == "Search") {
             $hash = bin2hex(sodium_crypto_generichash( $translation,"",16));
-            $code = $this->target_lang_code;
+            $scode = $this->source_lang_code;
+            $code = $this->target_lang_code;            
             $tb = $wpdb->prefix . 'wpmtr_translate';
-
             $sql = "SELECT text FROM " . $tb. " WHERE hash = '". $hash . "' AND code = '". $code . "' LIMIT 1";
-            //error_log($sql);            
+
             $r = $wpdb->get_results($sql);
             if($r) {
+                error_log("...exist " . $translation);                            
                 $translation = $r[0]->text ;
             }
             else {
+                $translation =  str_replace('%s','',$translation);
+                $url =  "https://mtranslate.myridia.com/?s=".$scode . "&t=". $code ."&v=".$translation;
+
+               error_log("...mtranslate " . $translation);                                         
+               $r2 = wp_remote_get( $url );
+               $b = wp_remote_retrieve_body( $r2 );
+               $body = json_decode($b);
+               $translation = $body->target_value;
+               //error_log($url);                               
+
         $wpdb->insert($tb, 
    	    array( 
 		'hash' => $hash, 
@@ -66,8 +77,9 @@ class WPMTR_Frontend
 		'text' => $translation,
 	    ) 
         );
+
             }
-        }
+            //}
         return $translation;
     }
 

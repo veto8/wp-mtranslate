@@ -16,6 +16,7 @@ echo -e "7\t Export Db - Export the database on the docker/test server"
 echo -e "8\t Rename WP - Rename the database on the docker server"
 echo -e "9\t Watch debug.log "
 echo -e "10\t Create Pot file -Language"
+echo -e "11\t Stop Docker"
 echo -e "0\t Exit "
 }
 
@@ -85,8 +86,9 @@ elif [ "$task" = "10" ]; then
     docker exec wpcli wp i18n make-pot wp-content/plugins/mtranslate  wp-content/plugins/mtranslate/languages/mtranslate.pot  --allow-root    
 
 
-
-
+elif [ "$task" = "11" ]; then
+    echo "...${task}"
+    docker stop `docker ps -qa`    
     
 else
     echo "Goodbye! - Exit"
