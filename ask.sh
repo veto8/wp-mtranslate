@@ -41,8 +41,7 @@ elif [ "$task" = "2" ]; then
     echo "Visit:"
     echo "http://127.0.0.1:88"    
 
-    
-elif [ "$task" = "3" ]; then
+    elif [ "$task" = "3" ]; then
     echo "...${task}"
     docker stop `docker ps -qa`    
     docker rm `docker ps -qa`
@@ -78,7 +77,9 @@ elif [ "$task" = "8" ]; then
 
 elif [ "$task" = "9" ]; then
     echo "...${task}"
-    sudo echo "" > test/wordpress/wp-content/debug.log 
+    sleep 2
+    sudo echo "" > test/wordpress/wp-content/debug.log
+    sleep 2    
     tail  test/wordpress/wp-content/debug.log  -f
 
 elif [ "$task" = "10" ]; then
@@ -94,6 +95,7 @@ else
     echo "Goodbye! - Exit"
 fi
 
+sleep 5
 ask
 
 done 

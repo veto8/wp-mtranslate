@@ -52,32 +52,54 @@ class WPMTR_Frontend
             $scode = $this->source_lang_code;
             $code = $this->target_lang_code;            
             $tb = $wpdb->prefix . 'wpmtr_translate';
-            $sql = "SELECT text FROM " . $tb. " WHERE hash = '". $hash . "' AND code = '". $code . "' LIMIT 1";
+            $sql = "SELECT target_text FROM " . $tb. " WHERE hash = '". $hash . "' AND code = '". $code . "' AND target_text !='' LIMIT 1";
 
             $r = $wpdb->get_results($sql);
             if($r) {
                 error_log("...exist " . $translation);                            
-                $translation = $r[0]->text ;
+                $translation = $r[0]->target_text ;
             }
             else {
-                $translation =  str_replace('%s','',$translation);
-                $url =  "https://mtranslate.myridia.com/?s=".$scode . "&t=". $code ."&v=".$translation;
-
-               error_log("...mtranslate " . $translation);                                         
+                //$translation =  str_replace('%s','',$translation);
+                /* 
+               error_log("...mtranslate " . $translation);                                                         
+               $url =  "https://mtranslate.myridia.com/?s=".$scode . "&t=". $code ."&v=".$translation;
                $r2 = wp_remote_get( $url );
                $b = wp_remote_retrieve_body( $r2 );
                $body = json_decode($b);
-               $translation = $body->target_value;
-               //error_log($url);                               
+               $target_text = $body->target_value;
+                */
+
+
+                //error_log("hash: " . $hash);
+                //error_log("hash: " . $code);
+                //error_log("source: " . $translation);
+
+
+               $exist = $wpdb->get_var("SELECT ID FROM ".$tb ." WHERE hash = '" . $hash ."'");
+                error_log("exist: " . $exist);                
+                if($exist == NULL) {
 
         $wpdb->insert($tb, 
    	    array( 
 		'hash' => $hash, 
 		'code' => $code,
-		'text' => $translation,
+		'source_text' => $translation,
 	    ) 
         );
+        }
 
+        
+               //error_log($url);                               
+               /*
+        $wpdb->insert($tb, 
+   	    array( 
+		'hash' => $hash, 
+		'code' => $code,
+		'target_text' => $translation,
+	    ) 
+        );
+               */
             }
             //}
         return $translation;

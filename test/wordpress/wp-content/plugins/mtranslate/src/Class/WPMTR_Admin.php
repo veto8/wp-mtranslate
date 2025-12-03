@@ -145,7 +145,8 @@ $sql = "CREATE TABLE $table_name (
   id mediumint(9) NOT NULL AUTO_INCREMENT,
   hash varchar(32) DEFAULT '' NOT NULL,
   code varchar(4) DEFAULT '' NOT NULL,
-  text text NOT NULL,
+  target_text text NOT NULL,
+  source_text text NOT NULL,
   PRIMARY KEY  (id),
   UNIQUE INDEX (hash,code)
 ) $charset_collate;";
