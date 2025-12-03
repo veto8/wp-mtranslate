@@ -97,10 +97,17 @@ function wpmtr_init()
 {
 //require_once $_SERVER['DOCUMENT_ROOT']. "/wp-includes/html-api/class-wp-html-tag-processor.php" ;
          require_once $_SERVER['DOCUMENT_ROOT']. "/wp-includes/html-api/class-wp-html-tag-processor.php" ;
-        $tags = new WP_HTML_Tag_Processor( "<p>hello</p>" );
+        $tags = new WP_HTML_Tag_Processor( "<p>xxxxx<span>hello</span></p>" );
 while ( $tags->next_tag() ) {
-    error_log($tags->get_tag());
 
+while ( $tags->next_token() ) {
+
+			if ( '#text' === $tags->get_token_type() ) {
+				$text = $tags->get_modifiable_text();
+        error_log($text);                
+			} 
+		}
+    
 
 }
 
