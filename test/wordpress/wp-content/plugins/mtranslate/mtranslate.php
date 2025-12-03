@@ -35,6 +35,7 @@ defined('ABSPATH') or exit('Something went wrong');
  */
 use WPMTR\Dt\Class\WPMTR_Admin;
 use WPMTR\Dt\Class\WPMTR_Frontend;
+require_once("./wp-includes/html-api/class-wp-html-tag-processor.php");
 
 /*
  * Constants Calls
@@ -94,9 +95,14 @@ function wpmtr_admin_init()
  */
 function wpmtr_init()
 {
+    if (defined('DOING_AJAX') && DOING_AJAX) {
+        //error_log("xxxxx");
+    }else {
+        //error_log("bbbbb");        
     $plugin = new WPMTR_Admin();
     $plugin->add_menu_setting();
     $plugin2 = new WPMTR_Frontend();
+    }
 }
 
 /*

@@ -34,16 +34,30 @@ class WPMTR_Frontend
             $this->set_domain();
             $this->set_lang_codes($this->domain, $this->options);
             if ($this->source_lang_code && $this->target_lang_code) {
+                error_log(date("H:i:s"));
                 //add_filter('locale', [$this, 'swap_locale'], 10a, 4);
-                add_filter('gettext', [$this, 'swap_gettext'], 10, 3);                
-                //add_action('wp_enqueue_scripts', [$this, 'add_scripts']);
-                //add_action('wp_enqueue_scripts', [$this, 'add_styles']);
+                //add_filter('gettext', [$this, 'swap_gettext'], 10, 3);
+                add_filter('the_content', [$this, 'swap_the_content'], 10, 3);                                
+
             }
         }
     }
 
 
 
+
+
+    public function swap_the_content( $content ) {
+        $html = json_encode($content);
+
+        //$tags = new WP_HTML_Tag_Processor( $html );
+        //error_log($html);
+        //$dom = new DOMDocument();
+        //$dom->loadHTML($html, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
+         return $content;
+    }
+
+    
     public function swap_gettext($translation, $text, $domain){
         global $wpdb;        
 
@@ -52,13 +66,22 @@ class WPMTR_Frontend
             $scode = $this->source_lang_code;
             $code = $this->target_lang_code;            
             $tb = $wpdb->prefix . 'wpmtr_translate';
-            $sql = "SELECT target_text FROM " . $tb. " WHERE hash = '". $hash . "' AND code = '". $code . "' AND target_text !='' LIMIT 1";
+            $sql = "SELECT target_text FROM " . $tb. " WHERE hash = '". $hash . "' AND code = '". $code . "' LIMIT 1";
 
             $r = $wpdb->get_results($sql);
             if($r) {
-                error_log("...exist " . $translation);                            
-                $translation = $r[0]->target_text ;
+
+                if($r[0]->target_text != "") {
+                  $translation = $r[0]->target_text ;
+                }
+                else {
+                    $translation = "xxxxxxxxxxxxxxx";
+                }
+                //error_log("xxxxxxxxxxxxxxxxxxxxxx");                                
+                //error_log("...exist " . $translation);
+                 //error_log("xxxxxxxxxxxxxxxxxxxxxx");                                
             }
+            
             else {
                 //$translation =  str_replace('%s','',$translation);
                 /* 
@@ -77,7 +100,7 @@ class WPMTR_Frontend
 
 
                $exist = $wpdb->get_var("SELECT ID FROM ".$tb ." WHERE hash = '" . $hash ."'");
-                error_log("exist: " . $exist);                
+                error_log("id exists: " . $exist);                
                 if($exist == NULL) {
 
         $wpdb->insert($tb, 
