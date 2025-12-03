@@ -50,7 +50,6 @@ class WPMTR_Frontend
     public function swap_the_content( $content ) {
         $html = json_encode($content);
 
-        //$tags = new WP_HTML_Tag_Processor( $html );
         //error_log($html);
         //$dom = new DOMDocument();
         //$dom->loadHTML($html, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);

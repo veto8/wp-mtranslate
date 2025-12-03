@@ -35,7 +35,7 @@ defined('ABSPATH') or exit('Something went wrong');
  */
 use WPMTR\Dt\Class\WPMTR_Admin;
 use WPMTR\Dt\Class\WPMTR_Frontend;
-require_once("./wp-includes/html-api/class-wp-html-tag-processor.php");
+
 
 /*
  * Constants Calls
@@ -95,6 +95,15 @@ function wpmtr_admin_init()
  */
 function wpmtr_init()
 {
+//require_once $_SERVER['DOCUMENT_ROOT']. "/wp-includes/html-api/class-wp-html-tag-processor.php" ;
+         require_once $_SERVER['DOCUMENT_ROOT']. "/wp-includes/html-api/class-wp-html-tag-processor.php" ;
+        $tags = new WP_HTML_Tag_Processor( "<p>hello</p>" );
+while ( $tags->next_tag() ) {
+    error_log($tags->get_tag());
+
+
+}
+
     if (defined('DOING_AJAX') && DOING_AJAX) {
         //error_log("xxxxx");
     }else {
