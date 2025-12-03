@@ -103,6 +103,7 @@ while ( $tags->next_tag() ) {
 while ( $tags->next_token() ) {
 
 			if ( '#text' === $tags->get_token_type() ) {
+				$tags->set_modifiable_text("ffffff");                
 				$text = $tags->get_modifiable_text();
         error_log($text);                
 			} 
