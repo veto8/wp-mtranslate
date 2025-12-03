@@ -1,6 +1,12 @@
 <?php
 
 namespace WPMTR\Dt\Class;
+use WP_HTML_Tag_Processor;
+
+//use $_SERVER['DOCUMENT_ROOT']. "/wp-includes/html-api/class-wp-html-tag-processor.php";
+//require_once $_SERVER['DOCUMENT_ROOT']. "/wp-includes/html-api/class-wp-html-tag-processor.php";
+//$html = "<p>xxxxx<em>hello</em></p>";
+//$tags = new WP_HTML_Tag_Processor( $html );
 
 /**
  * Class Frontend.
@@ -49,6 +55,22 @@ class WPMTR_Frontend
 
     public function swap_the_content( $content ) {
         $html = json_encode($content);
+        $tags = new WP_HTML_Tag_Processor( $html );        
+
+
+
+while ( $tags->next_tag() ) {
+while ( $tags->next_token() ) {
+if ( '#text' === $tags->get_token_type() ) {
+    //$tags->set_modifiable_text("ffffff");                
+  $text = $tags->get_modifiable_text();
+  error_log($text);                
+} 
+}
+}
+
+$html2 = $tags->get_updated_html();
+error_log(json_encode($html2));
 
         //error_log($html);
         //$dom = new DOMDocument();

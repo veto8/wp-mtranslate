@@ -95,7 +95,7 @@ function wpmtr_admin_init()
  */
 function wpmtr_init()
 {
-//require_once $_SERVER['DOCUMENT_ROOT']. "/wp-includes/html-api/class-wp-html-tag-processor.php" ;
+    /*
 require_once $_SERVER['DOCUMENT_ROOT']. "/wp-includes/html-api/class-wp-html-tag-processor.php";
 $html = "<p>xxxxx<em>hello</em></p>";
 $tags = new WP_HTML_Tag_Processor( $html );
@@ -111,7 +111,7 @@ if ( '#text' === $tags->get_token_type() ) {
 
 $html2 = $tags->get_updated_html();
 error_log(json_encode($html2));
-
+    */
 
     if (defined('DOING_AJAX') && DOING_AJAX) {
         //error_log("xxxxx");
