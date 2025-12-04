@@ -62,15 +62,15 @@ class WPMTR_Frontend
 while ( $tags->next_tag() ) {
 while ( $tags->next_token() ) {
 if ( '#text' === $tags->get_token_type() ) {
-    //$tags->set_modifiable_text("ffffff");                
-  $text = $tags->get_modifiable_text();
-  error_log($text);                
+   $source_text = $tags->get_modifiable_text();    
+   //$tags->set_modifiable_text("ffffff");                
+   error_log($source_text);                
 } 
 }
 }
 
-$html2 = $tags->get_updated_html();
-error_log(json_encode($html2));
+$content = $tags->get_updated_html();
+//error_log(json_encode($html2));
 
         //error_log($html);
         //$dom = new DOMDocument();
