@@ -40,10 +40,11 @@ class WPMTR_Frontend
             $this->set_domain();
             $this->set_lang_codes($this->domain, $this->options);
             if ($this->source_lang_code && $this->target_lang_code) {
-                error_log(date("H:i:s"));
+                //error_log(date("H:i:s"));
                 //add_filter('locale', [$this, 'swap_locale'], 10a, 4);
                 //add_filter('gettext', [$this, 'swap_gettext'], 10, 3);
-                add_filter('the_content', [$this, 'swap_the_content'], 10, 3);                                
+                //add_filter('the_content', [$this, 'swap_the_content'], 10, 3);
+                add_filter('wp_setup_nav_menu_item', [$this, 'swap_wp_setup_nav_menu_item']);
 
             }
         }
@@ -154,7 +155,22 @@ $content = $tags->get_updated_html();
     }    
 
 
-    
+
+       /**
+     * Overwrite filter hook wp_setup_nav_menu_item.
+     *
+     * https://developer.wordpress.org/reference/hooks/wp_setup_nav_menu_item
+     *
+     * @since 1.0.0
+     *
+     * @return string $menu_item
+     */
+    public function swap_wp_setup_nav_menu_item($menu_item)
+    {
+        //$menu_item->url = str_replace($this->siteurl, $this->new_siteurl, $menu_item->url);
+
+        return $menu_item;
+    }
 
     
     /**
